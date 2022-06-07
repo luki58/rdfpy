@@ -26,3 +26,11 @@ class TestRDF3D(unittest.TestCase):
         # test non-parallel
         g_r, radii = rdf(coords3d, dr=0.1, parallel=False)
         assert np.all(g_r_parallel == g_r)
+
+
+data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/2dcoords.npy')
+coords2d = np.load(data_path)
+# test parallel
+#g_r_parallel, radii = rdf(coords2d, dr=5/6, parallel=True)
+# test non-parallel
+g_r, radii = rdf(coords2d, dr=5/6, parallel=False)
